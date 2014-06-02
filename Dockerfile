@@ -1,7 +1,7 @@
 #
 # Ubuntu Desktop (Gnome) Dockerfile
 #
-# https://github.com/intlabs/Docker-Ubuntu-Desktop-Gnome
+# https://github.com/intlabs/dockerfile-ubuntu-libreoffice-vnc
 #
 
 # Install GNOME3 and VNC server.
@@ -34,26 +34,26 @@ RUN dpkg-divert --local --rename --add /sbin/initctl && ln -sf /bin/true /sbin/i
 
 
 # Install GNOME and tightvnc server.
-RUN apt-get update && apt-get install -y xorg gnome-core gnome-session-fallback tightvncserver
+RUN apt-get update && apt-get install -y xorg gnome-core gnome-session-fallback tightvncserver libreoffice
 
 # Pull in the hack to fix keyboard shortcut bindings for GNOME 3 under VNC
-ADD https://raw.githubusercontent.com/intlabs/Docker-Ubuntu-Desktop-Gnome/master/gnome-keybindings.pl /usr/local/etc/gnome-keybindings.pl
+ADD https://raw.githubusercontent.com/intlabs/dockerfile-ubuntu-libreoffice-vnc/master/gnome-keybindings.pl /usr/local/etc/gnome-keybindings.pl
 RUN chmod +x /usr/local/etc/gnome-keybindings.pl
 
 # Add the script to fix and customise GNOME for docker
-ADD https://raw.githubusercontent.com/intlabs/Docker-Ubuntu-Desktop-Gnome/master/gnome-docker-fix-and-customise.sh /usr/local/etc/gnome-docker-fix-and-customise.sh
+ADD https://raw.githubusercontent.com/intlabs/dockerfile-ubuntu-libreoffice-vnc/master/gnome-docker-fix-and-customise.sh /usr/local/etc/gnome-docker-fix-and-customise.sh
 RUN chmod +x /usr/local/etc/gnome-docker-fix-and-customise.sh
 
 # Set up VNC
 RUN apt-get install -y expect
 RUN mkdir -p /root/.vnc
-ADD https://raw.githubusercontent.com/intlabs/Docker-Ubuntu-Desktop-Gnome/master/xstartup /root/.vnc/xstartup
+ADD https://raw.githubusercontent.com/intlabs/dockerfile-ubuntu-libreoffice-vnc/master/xstartup /root/.vnc/xstartup
 RUN chmod 755 /root/.vnc/xstartup
-ADD https://raw.githubusercontent.com/intlabs/Docker-Ubuntu-Desktop-Gnome/master/spawn-desktop.sh /usr/local/etc/spawn-desktop.sh
+ADD https://raw.githubusercontent.com/intlabs/dockerfile-ubuntu-libreoffice-vnc/master/spawn-desktop.sh /usr/local/etc/spawn-desktop.sh
 RUN chmod +x /usr/local/etc/spawn-desktop.sh
-ADD https://raw.githubusercontent.com/intlabs/Docker-Ubuntu-Desktop-Gnome/master/start-vnc-expect-script.sh /usr/local/etc/start-vnc-expect-script.sh
+ADD https://raw.githubusercontent.com/intlabs/dockerfile-ubuntu-libreoffice-vnc/master/start-vnc-expect-script.sh /usr/local/etc/start-vnc-expect-script.sh
 RUN chmod +x /usr/local/etc/start-vnc-expect-script.sh
-ADD https://raw.githubusercontent.com/intlabs/Docker-Ubuntu-Desktop-Gnome/master/vnc.conf /etc/vnc.conf
+ADD https://raw.githubusercontent.com/intlabs/dockerfile-ubuntu-libreoffice-vnc/master/vnc.conf /etc/vnc.conf
 
 #Install noVNC
 RUN apt-get install -y git python-numpy
@@ -67,7 +67,8 @@ VOLUME ["/data"]
 WORKDIR /data
 
 # Define default command.
-CMD bash -C '/usr/local/etc/spawn-desktop.sh';'bash'
+#CMD bash -C '/usr/local/etc/spawn-desktop.sh';'bash'
+CMD bash -C 'bash'
 
 # Expose ports.
 #EXPOSE 5901

@@ -27,12 +27,12 @@ This repository contains the *Dockerfile* and *associated files* for setting up 
 
 2. You can then pull the file:
 
-	`sudo docker pull intlabs/Docker-Ubuntu-Desktop-Gnome`
+	`sudo docker pull intlabs/dockerfile-ubuntu-libreoffice-vnc`
 
 
 	Or alternatively build an image from the Dockerfile:
 
-	`sudo docker build -t="intlabs/Docker-Ubuntu-Desktop-Gnome" github.com/intlabs/Docker-Ubuntu-Desktop-Gnome`
+	`sudo docker build -t="intlabs/dockerfile-ubuntu-libreoffice-vnc" github.com/intlabs/dockerfile-ubuntu-libreoffice-vnc`
 
 
 ### SuperQuick Install
@@ -44,8 +44,8 @@ This repository contains the *Dockerfile* and *associated files* for setting up 
 	sudo apt-get -y install docker.io && \
 	sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker && \
 	sudo restart docker.io && \
-	sudo docker pull intlabs/Docker-Ubuntu-Desktop-Gnome && \
-	sudo docker run -it --rm -p 5901:5901 intlabs/Docker-Ubuntu-Desktop-Gnome
+	sudo docker pull intlabs/dockerfile-ubuntu-libreoffice-vnc && \
+	sudo docker run -it --rm -p 5901:5901 intlabs/dockerfile-ubuntu-libreoffice-vnc
 
 
 ### Usage
@@ -56,11 +56,11 @@ This repository contains the *Dockerfile* and *associated files* for setting up 
 
 * this will run and drop you into a session:
 
-	`sudo docker run -it --rm -p 5901:5901 intlabs/Docker-Ubuntu-Desktop-Gnome`
+	`sudo docker run -it --rm -p 5901:5901 intlabs/dockerfile-ubuntu-libreoffice-vnc`
 
 * or for silent running:
 
-	`sudo docker run -it -d -p 5901:5901 intlabs/Docker-Ubuntu-Desktop-Gnome`
+	`sudo docker run -it -d -p 5901:5901 intlabs/dockerfile-ubuntu-libreoffice-vnc`
 
 #### Connecting to instance
 
