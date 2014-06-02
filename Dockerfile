@@ -68,7 +68,7 @@ WORKDIR /data
 
 # Define default command.
 #CMD bash -C '/usr/local/etc/spawn-desktop.sh';'bash'
-CMD bash -C 'bash'
+CMD "bash"
 
 # Expose ports.
 #EXPOSE 5901
