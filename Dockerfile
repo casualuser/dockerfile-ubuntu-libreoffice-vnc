@@ -33,16 +33,10 @@ cd /tmp ; dpkg -i /fuse.deb
 RUN dpkg-divert --local --rename --add /sbin/initctl && ln -sf /bin/true /sbin/initctl
 
 
-# Install GNOME and tightvnc server.
-RUN apt-get update && apt-get install -y xorg gnome-core gnome-session-fallback tightvncserver libreoffice
+# Install libreoffice and tightvnc server.
+#RUN apt-get update && apt-get install -y xorg gnome-core gnome-session-fallback tightvncserver libreoffice
+RUN apt-get update && apt-get install -y xorg tightvncserver libreoffice
 
-# Pull in the hack to fix keyboard shortcut bindings for GNOME 3 under VNC
-ADD https://raw.githubusercontent.com/intlabs/dockerfile-ubuntu-libreoffice-vnc/master/gnome-keybindings.pl /usr/local/etc/gnome-keybindings.pl
-RUN chmod +x /usr/local/etc/gnome-keybindings.pl
-
-# Add the script to fix and customise GNOME for docker
-ADD https://raw.githubusercontent.com/intlabs/dockerfile-ubuntu-libreoffice-vnc/master/gnome-docker-fix-and-customise.sh /usr/local/etc/gnome-docker-fix-and-customise.sh
-RUN chmod +x /usr/local/etc/gnome-docker-fix-and-customise.sh
 
 # Set up VNC
 RUN apt-get install -y expect
