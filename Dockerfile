@@ -39,6 +39,13 @@ RUN dpkg-divert --local --rename --add /sbin/initctl && ln -sf /bin/true /sbin/i
 RUN apt-get update && apt-get install -y xorg tightvncserver libreoffice
 
 
+#Install the broadway gtk3 ppa for ubuntu 13.04
+RUN apt-get install software-properties-common python-software-properties -y
+RUN add-apt-repository ppa:malizor/gtk-next-broadway -y
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install broadwayd -y
+
 #Install gedit
 RUN apt-get install -y gedit net-tools
 
