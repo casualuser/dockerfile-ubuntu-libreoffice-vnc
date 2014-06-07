@@ -9,7 +9,7 @@
 
 # Pull base image.
 #FROM dockerfile/ubuntu
-FROM ubuntu:13:04
+FROM ubuntu:13.04
 
 # Setup enviroment variables
 ENV DEBIAN_FRONTEND noninteractive
