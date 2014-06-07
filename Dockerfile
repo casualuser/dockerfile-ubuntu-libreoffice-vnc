@@ -41,13 +41,13 @@ RUN apt-get update && apt-get install -y xorg tightvncserver libreoffice
 # Set up VNC
 RUN apt-get install -y expect
 RUN mkdir -p /root/.vnc
-ADD https://raw.githubusercontent.com/intlabs/dockerfile-ubuntu-libreoffice-vnc/master/xstartup /root/.vnc/xstartup
+ADD xstartup /root/.vnc/xstartup
 RUN chmod 755 /root/.vnc/xstartup
-ADD https://raw.githubusercontent.com/intlabs/dockerfile-ubuntu-libreoffice-vnc/master/spawn-desktop.sh /usr/local/etc/spawn-desktop.sh
+ADD spawn-desktop.sh /usr/local/etc/spawn-desktop.sh
 RUN chmod +x /usr/local/etc/spawn-desktop.sh
-ADD https://raw.githubusercontent.com/intlabs/dockerfile-ubuntu-libreoffice-vnc/master/start-vnc-expect-script.sh /usr/local/etc/start-vnc-expect-script.sh
+ADD start-vnc-expect-script.sh /usr/local/etc/start-vnc-expect-script.sh
 RUN chmod +x /usr/local/etc/start-vnc-expect-script.sh
-ADD https://raw.githubusercontent.com/intlabs/dockerfile-ubuntu-libreoffice-vnc/master/vnc.conf /etc/vnc.conf
+ADD vnc.conf /etc/vnc.conf
 
 #Install noVNC
 RUN apt-get install -y git python-numpy
