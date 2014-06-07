@@ -64,6 +64,7 @@ ADD vnc.conf /etc/vnc.conf
 RUN apt-get install -y git python-numpy
 RUN cd / && git clone git://github.com/kanaka/noVNC && cp noVNC/vnc_auto.html noVNC/index.html
 
+ENV HOME /root
 
 # Define mountable directories.
 VOLUME ["/data"]
