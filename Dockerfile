@@ -40,7 +40,7 @@ RUN apt-get update && apt-get install -y xorg tightvncserver libreoffice
 
 
 #Install gedit
-RUN apt-get install -y gedit
+RUN apt-get install -y gedit net-tools
 
 # Set up VNC
 RUN apt-get install -y expect
