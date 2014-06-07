@@ -38,6 +38,9 @@ RUN dpkg-divert --local --rename --add /sbin/initctl && ln -sf /bin/true /sbin/i
 RUN apt-get update && apt-get install -y xorg tightvncserver libreoffice
 
 
+#Install gedit
+RUN apt-get install -y gedit
+
 # Set up VNC
 RUN apt-get install -y expect
 RUN mkdir -p /root/.vnc
@@ -53,8 +56,6 @@ ADD vnc.conf /etc/vnc.conf
 RUN apt-get install -y git python-numpy
 RUN cd / && git clone git://github.com/kanaka/noVNC && cp noVNC/vnc_auto.html noVNC/index.html
 
-#Install gedit
-RUN apt-get install -y gedit
 
 # Define mountable directories.
 VOLUME ["/data"]
