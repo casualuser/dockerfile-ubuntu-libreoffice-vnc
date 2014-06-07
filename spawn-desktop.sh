@@ -1,6 +1,8 @@
 #!/bin/sh
 # (c) Pete Birley
 
+cd /source/libreoffice && ./autogen.sh --enable-gtk3 --without-java --without-doxygen &&  make
+
 #this sets the vnc password
 /usr/local/etc/start-vnc-expect-script.sh
 
