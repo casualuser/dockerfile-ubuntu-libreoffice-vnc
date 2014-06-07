@@ -17,5 +17,5 @@ unset DBUS_SESSION_BUS_ADDRESS
 #gnome-terminal -e /usr/local/etc/gnome-docker-fix-and-customise.sh &
 #libreoffice &
 xterm -e broadwayd &
-xterm -e 'GDK_BACKEND=broadway gedit &'
+xterm -e 'GDK_BACKEND=broadway gedit' &
 xterm
