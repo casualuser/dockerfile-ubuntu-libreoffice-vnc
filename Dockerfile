@@ -49,6 +49,15 @@ RUN apt-get install broadwayd -y
 #Install gedit
 RUN apt-get install -y gedit net-tools
 
+#Build Libreoffice - takes about an hour (7 Core xeon 1230v2, 16GB, SSD)
+apt-get install -y libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev wget curl
+RUN apt-get build-dep libreoffice && \
+git clone git://anongit.freedesktop.org/libreoffice/core libreoffice && \
+cd libreoffice && \
+./autogen.sh --enable-gtk3 --without-java --without-doxygen && \
+make
+
+
 # Set up VNC
 RUN apt-get install -y expect
 RUN mkdir -p /root/.vnc
