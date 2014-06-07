@@ -18,7 +18,7 @@
 # character to toggle this mode off and on.
 
 set force_conservative 0  ;# set to 1 to force conservative mode even if
-                          ;# script wasn't run conservatively originally
+                          ;# script wasnt run conservatively originally
 if {$force_conservative} {
         set send_slow {1 .1}
         proc send {ignore arg} {

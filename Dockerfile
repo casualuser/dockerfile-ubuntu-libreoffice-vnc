@@ -53,6 +53,8 @@ ADD https://raw.githubusercontent.com/intlabs/dockerfile-ubuntu-libreoffice-vnc/
 RUN apt-get install -y git python-numpy
 RUN cd / && git clone git://github.com/kanaka/noVNC && cp noVNC/vnc_auto.html noVNC/index.html
 
+#Install gedit
+RUN apt-get install -y gedit
 
 # Define mountable directories.
 VOLUME ["/data"]

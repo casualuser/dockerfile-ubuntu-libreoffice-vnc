@@ -56,7 +56,7 @@ This repository contains the *Dockerfile* and *associated files* for setting up 
 
 * this will run and drop you into a session:
 
-	`sudo docker run -it --rm -p 5901:5901 intlabs/dockerfile-ubuntu-libreoffice-vnc`
+	`sudo docker run -it --rm -p 85:80 intlabs/dockerfile-ubuntu-libreoffice-vnc`
 
 * or for silent running:
 
