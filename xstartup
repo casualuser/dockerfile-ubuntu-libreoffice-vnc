@@ -16,7 +16,6 @@ unset DBUS_SESSION_BUS_ADDRESS
 #This script customises and bugfixes gnome - it is being run here - rather than in .gnomerc or similar as these will not work with manausl launch - and the user is already logged in so we arn't using gdm or similar - this should be refactored to run sliently and lock user input/VNC output untill it has completed.
 #gnome-terminal -e /usr/local/etc/gnome-docker-fix-and-customise.sh &
 #libreoffice &
-xterm &
-broadwayd &
-
-GDK_BACKEND=broadway gedit &
+xterm -e broadwayd &
+xterm -e 'GDK_BACKEND=broadway gedit &'
+xterm
